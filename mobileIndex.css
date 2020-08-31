@@ -1,0 +1,13 @@
+@media (max-width: 670px) {
+    topheader .mobile {
+        display: block;
+    }
+
+    topheader .pc {
+        display: none;
+    }
+
+    .fa-ellipsis-v {
+        display: none;
+    }
+}
