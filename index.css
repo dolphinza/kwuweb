@@ -14,13 +14,12 @@ a {
     background-color: black;
 }
 
-.header li {
+li {
     list-style-type: none;
-    float: right;
     padding-right: 15px;
 }
 
-.header li a {
+li a {
     color: white;
 }
 
@@ -48,4 +47,17 @@ topheader .mobile {
 
 .card:hover {
     box-shadow: 2px 2px 10px #62626280;
+}
+
+.footer{
+    border-top:0.1px black solid;
+    color: white;
+    background-color: black;
+    padding: 30px 0px;
+}
+
+.footer a{
+    color: white;
+    font-size: 18px;
+    
 }
