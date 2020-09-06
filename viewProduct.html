@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="univstyle.css">
+    <link rel="stylesheet" href="allmobileview.css">
+
+    <title>Judul Produk</title>
+</head>
+
+<body>
+
+    <!-- Bagian paling atas halaman website-->
+    <topheader>
+        <div class="navbar header">
+            <div></div> <!-- Jangan dihapus -->
+            <ul>
+                <li class="float-right pc"><a href="#">customer care</a></li>
+                <li class="float-right pc"><a href="#">tentang puma store</a></li>
+                <!-- <li class="float-right mobile"><a href="#">signup</a></li>
+                <li class="float-right mobile"><a href="#">Login</a></li> -->
+                <li class="float-right mobile"><a href="#">Wishlist</a></li>
+            </ul>
+        </div>
+    </topheader>
+
+    <!-- Bagian navigasi utama -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">Puma store</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            <input class="form-control mr-2 search-mobile-version" type="search" placeholder="Search"
+                aria-label="Search">
+            <!-- <button class="btn btn-outline-dark my-0 my-sm-0 mr-2" type="submit">Search</button> -->
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+
+                        <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
+                            <i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Wishlist 1</a>
+                            <a class="dropdown-item" href="#">Wishlist 2</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Kosongkan keranjang</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            <i class=" fa fa-ellipsis-v fa-lg mr-2" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <button type="button" class="btn btn-outline-dark mr-2 btn-sm">Sign in</button>
+            <button type="button" class="btn btn-dark btn-sm p1">Sign up</button>
+        </div>
+    </nav>
+
+    <!-- main content viewProduct -->
+    <div class="container">
+
+        <!-- produk picture and mini description -->
+        <div class="row mt-4">
+
+            <!-- (bagian kiri) bagian gambar produk dan 3 versi mini gambar produk -->
+            <div class="col">
+                <img src="img/sepatu.jpg" class="img-thumbnail" alt="">
+
+                <div class="container mt-2 mb-2">
+                    <div class="row mr-2">
+                        <div class="col">
+                            <img class="img-thumbnail" src="img/sepatu.jpg" alt="" style="width: 120px; height: 80px;">
+                        </div>
+                        <div class="col">
+                            <img class="img-thumbnail" src="img/sepatu.jpg" alt="" style="width: 120px; height: 80px;">
+                        </div>
+                        <div class="col">
+                            <img class="img-thumbnail" src="img/sepatu.jpg" alt="" style="width: 120px; height: 80px;">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <ul>
+                    <li class="img-thumbnail img-list "></li>
+                    <li class="img-thumbnail img-list mr-2 mt-2 mb-2"><img src="img/sepatu.jpg" alt="" style="width: 120px; height: 80px;"></li>
+                    <li class="img-thumbnail img-list mr-2 mt-2 mb-2"><img src="img/sepatu.jpg" alt="" style="width: 120px; height: 80px;"></li>
+                </ul> -->
+            </div>
+
+            <!-- bagian kanan (judul produk, harga, discount, jumlah) -->
+            <div class="col mt-5">
+
+                <!-- bagian judul produk -->
+                <h3 class="mt-4 product-title">Lorem Ipsum judul produk akan ditaruh disini</h3>
+                <div class="line-space-price"></div>
+
+                <!-- bagian Harga dan discount -->
+                <div class="row mt-2">
+                    <div class="col">
+                        <h6 class="title-mini-product">Harga</h6>
+                    </div>
+
+                    <div class="col">
+
+                        <!-- bagian yang menampilkan discount dan potongan harganya -->
+                        <!-- bisa disembunyikan menggunakan style -->
+                        <div class="row hidden title-discount">
+                            <div class="discountbox">20%</div>
+                            <del>100.xxx</del>
+                            <div class="col"></div>
+                            <div class="col"></div>
+                        </div>
+
+                        <!-- bagian harga barang -->
+                        <div class="row">
+                            <h3 class="text-success price">Rp. 400.xxx</h3>
+                        </div>
+
+                    </div>
+
+                    <div class="col"></div> <!-- pemberi space di sisi kanan bagian harga -->
+                </div>
+                <div class="line-space-price"></div>
+
+                <!-- bagian jumlah -->
+                <div class="row mt-2">
+                    <div class="col">
+                        <h6 class="title-mini-product">Jumlah</h6>
+                    </div>
+
+                    <div class="col">
+                        <p class="stok-null">stok habis</p>
+                        <input type="number" name="" id="" placeholder="1">
+                    </div>
+
+                    <div class="col"></div> <!-- pemberi space di sisi kanan bagian harga -->
+                </div>
+                <div class="line-space-price"></div>
+
+                <!-- bagian info produk -->
+                <div class="row mt-2">
+                    <div class="col">
+                        <h6 class="title-mini-product">Info Produk</h6>
+                    </div>
+
+                    <div class="col">
+                        <div class="row">
+                            <div class="col">
+                                <h6 style="font-weight: normal;">Berat</h6>
+                                <h6>1kg</h6>
+                            </div>
+                            <div class="col">
+                                <h6 style="font-weight: normal;">Asuransi</h6>
+                                <h6>Ya</h6>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col"></div> <!-- pemberi space di sisi kanan bagian harga -->
+                </div>
+                <div class="line-space-price"></div>
+
+                <!-- bagian ukuran sepatu -->
+                <div class="row mt-2">
+                    <div class="col">
+                        <h6 class="title-mini-product">ukuran</h6>
+                    </div>
+
+                    <!-- option for select length -->
+                    <div class="col">
+                        <select class="form-control" name="ukuran" id="ukuran">
+                            <option selected>Pilih ukuran</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="5.5">5.5</option>
+                            <option value="6">6</option>
+                            <option value="6.5">6.5</option>
+                            <option value="7">7</option>
+                            <option value="7.5">7.5</option>
+
+                        </select>
+                    </div>
+
+                    <div class="col"></div> <!-- pemberi space di sisi kanan bagian harga -->
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- footer for wishlist, beli, and tambah trolly -->
+    <div class="sub-foot pt-1 pb-2">
+        <div class="container">
+            <ul>
+                <li class="ftright"><a class="btn btn-dark mr-1" href="#">Tambah Ke Trolly</a></li>
+                <li class="ftright"><a class="btn mr-1 btn-beli" href="#"> Beli </a></li>
+                <li class="ftright"><a class="btn mr-1 w-love" href="#"><i class="fa fa-heart" style="color: red;"
+                            aria-hidden="true"></i></a></li>
+                <!-- <li class="ftright"><a class="btn mr-2 w-love" href="#"><i class="fa fa-heart-o" style="color: red;" aria-hidden="true"></i></a></li> -->
+                <li class="ftright mr-4">
+                    <div class="row">
+                        <div style="font-size: 12px">Harga</div>
+                    </div>
+                    <div class="row">
+                        <h6 class="text-success" style="font-weight:bold;">Rp. 400.xxx</h6>
+                    </div>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+
+    <!-- footer -->
+    <div class="footer">
+        <div class="container mt-2">
+            <div class="row">
+                <div class="col" style="text-align: center;">
+                    <h5>Ikuti kami</h5>
+                    <div class="medsos">
+                        <a href="https://www.facebook.com"><img src="img/fb.png" class="fa fa-shopping-cart fa-lg"
+                                aria-hidden="true"></img></a>
+                        <a href="https://www.instagram.com"><img src="img/ig.png" class="fa fa-shopping-cart fa-lg"
+                                aria-hidden="true"></img></a>
+                        <a href="https://www.youtube.com"><img src="img/yt.png" class="fa fa-shopping-cart fa-lg"
+                                aria-hidden="true"></img></a>
+                    </div>
+                </div>
+                <div class="col">
+                    <ul>
+                        <a href="#">
+                            <li class="mb-3 ml-5">bantuan dan panduan</li>
+                        </a>
+                        <a href="#">
+                            <li class="mb-3 ml-5">syarat dan ketentuan</li>
+                        </a>
+                        <a href="#">
+                            <li class="mb-3 ml-5">kebijakan privasi</li>
+                        </a>
+                    </ul>
+                </div>
+                <div class="col" style="text-align: center;">
+                    <!-- <img src="" alt="Logo"> -->
+                    <h5 class="mx-auto">Puma store</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CDN Offline -->
+    <script src="bootstrap/js/jquery.min.js"></script>
+    <script src="bootstrap/js/popper.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>
