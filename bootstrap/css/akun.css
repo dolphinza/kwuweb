@@ -1,0 +1,19 @@
+.img-profile{
+    border-radius: 50%;
+    width: 50%;
+}
+.img-header{
+    text-align: center;
+}
+.bergabung{
+    font-size: 12px;
+}
+.info{
+    font-size: 25px;
+}
+#title-desc, #title-saldo{
+    font-size: 25px;
+}
+.isi-description{
+    font-size:13px;
+}
