@@ -2,7 +2,7 @@
 this content or code just for my school task.
 
 # UI (Done) 
-## Homepage 
+* Homepage 
 
 # Tampilan yang sedang proses
-## UI viewProduct
+* UI viewProduct
