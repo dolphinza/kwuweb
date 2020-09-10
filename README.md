@@ -1,8 +1,8 @@
 # kwuweb
 this content or code just for my school task.
 
-# UI (Done) 
+# Done 
 * Homepage 
 
-# Tampilan yang sedang proses
+# On Going
 * UI viewProduct
