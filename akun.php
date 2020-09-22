@@ -16,6 +16,7 @@
         echo "<script>alert('Login terlebih dahulu!');window.location.href='login.php';</script>";
     }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,11 +25,19 @@
 
     <!-- BOOTSTRAP CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
     <link rel="stylesheet" href="bootstrap/css/akun.css">
+    <link rel="stylesheet" href="bootstrap/css/univstyle.css">
+    <link rel="stylesheet" href="bootstrap/css/allmobileview.css">
 
     <title>Account Page &mdash; namanya</title>
 </head>
 <body>
+    <?php include "static/header.php" ?>
+
+
+    <!-- 
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="#">Puma Store</a>
@@ -47,10 +56,13 @@
             </div>
         </nav>
     </div>
+    -->
+    
     <div class="container mt-4">
         <button class="btn btn-success" onclick="window.location.href = 'edit-profil.php'">Edit Profile</button>
     </div>
-    <div class="container mt-4">
+    
+    <div class="container mt-4 mb-4">
         <div class="row">
             <div class="col-lg-4">
                 <!-- data cardnya diambil dari database -->
@@ -96,6 +108,9 @@
             </div>
         </div>
     </div>
+    
+    <?php include "static/footer.php"; ?>
+    
 
     <!-- BOOTSTRAP JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

@@ -1,3 +1,24 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    <!-- CSS Online -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+
+    <!-- CSS Offline -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap/css/univstyle.css">
+    <link rel="stylesheet" href="bootstrap/css/allmobileview.css">
+    <link rel="stylesheet" href="bootstrap/css/loader.css">
+
+    <title>Puma Store</title>
+</head>
+
+<body>
 <?php include "static/header.php"; ?>
 
     <!-- Bagian slider -->
@@ -35,301 +56,34 @@
 
         <!-- card rekomendasi -->
         <h4>Paling banyak di cari</h4>
-        <div class="row mt-3">
-            <!-- Card rekomendasi hanya ada 4 col -->
-            <div class="col">
-
-                <div class="card mx-auto mt-3" style="width: 12rem;">
-                    <a href="#" style="text-decoration: none;">
-                        <img src="img/sepatu.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <!-- karakter yang dapat di tampung card: 18 char -->
-                            <p class="card-text">Nama Produk bla bl</p>
-                            <p class="card-text price">Rp. 40X.XXX</p>
-                        </div>
-                    </a>
+        
+        <div class="row my-3">
+            <?php for ($i=0; $i < 5 ; $i++) { ?>
+                <!-- Card rekomendasi hanya ada 4 col -->
+                <div class="col">
+                    <div class="card mx-auto mt-3" style="width: 12rem;">
+                        <a href="#" style="text-decoration: none;">
+                            <?php include "produk.php"; ?>
+                        </a>
+                    </div>
                 </div>
-
-            </div>
-
-            <div class="col">
-
-                <div class="card mx-auto mt-3" style="width: 12rem;">
-                    <a href="#" style="text-decoration: none;">
-                        <img src="img/sepatu.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <!-- karakter yang dapat di tampung card: 18 char -->
-                            <p class="card-text">Nama Produk bla bl</p>
-                            <p class="card-text price">Rp. 40X.XXX</p>
-                        </div>
-                    </a>
-                </div>
-
-            </div>
-
-            <div class="col">
-
-                <div class="card mx-auto mt-3" style="width: 12rem;">
-                    <a href="#" style="text-decoration: none;">
-                        <img src="img/sepatu.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <!-- karakter yang dapat di tampung card: 18 char -->
-                            <p class="card-text">Nama Produk bla bl</p>
-                            <p class="card-text price">Rp. 40X.XXX</p>
-                        </div>
-                    </a>
-                </div>
-
-            </div>
-
-            <div class="col">
-
-                <div class="card mx-auto mt-3" style="width: 12rem;">
-                    <a href="#" style="text-decoration: none;">
-                        <img src="img/sepatu.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <!-- karakter yang dapat di tampung card: 18 char -->
-                            <p class="card-text">Nama Produk bla bl</p>
-                            <p class="card-text price">Rp. 40X.XXX</p>
-                        </div>
-                    </a>
-                </div>
-
-            </div>
-
+            <?php } ?>
         </div>
-    
+       
         <!-- more item -->
         <h4>produk-produk lainnya</h4>
         <div class="row">
 
-            <!-- bagian 1 -->
-            <div class="col">
-
-                <div class="card mx-auto mt-3" style="width: 12rem;">
-                    <a href="viewProduct.php" style="text-decoration: none;">
-                        <img src="img/sepatu.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <!-- karakter yang dapat di tampung card: 18 char -->
-                            <p class="card-text">Nama Produk bla bl</p>
-                            <p class="card-text price">Rp. 40X.XXX</p>
-                        </div>
-                    </a>
+            <!-- bagian List Produk more item -->
+            <?php for($i = 0; $i < 15; $i++){ ?>
+                <div class="col">
+                    <div class="card mx-auto mt-3" style="width: 12rem;">
+                        <a href="viewProduct.php" style="text-decoration: none;">
+                            <?php include "produk.php"; ?>
+                        </a>
+                    </div>
                 </div>
-
-            </div>
-
-            <div class="col">
-
-                <div class="card mx-auto mt-3" style="width: 12rem;">
-                    <a href="#" style="text-decoration: none;">
-                        <img src="img/sepatu.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <!-- karakter yang dapat di tampung card: 18 char -->
-                            <p class="card-text">Nama Produk bla bl</p>
-                            <p class="card-text price">Rp. 40X.XXX</p>
-                        </div>
-                    </a>
-                </div>
-
-            </div>
-
-            <div class="col">
-
-                <div class="card mx-auto mt-3" style="width: 12rem;">
-                    <a href="#" style="text-decoration: none;">
-                        <img src="img/sepatu.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <!-- karakter yang dapat di tampung card: 18 char -->
-                            <p class="card-text">Nama Produk bla bl</p>
-                            <p class="card-text price">Rp. 40X.XXX</p>
-                        </div>
-                    </a>
-                </div>
-
-            </div>
-
-            <div class="col">
-
-                <div class="card mx-auto mt-3" style="width: 12rem;">
-                    <a href="#" style="text-decoration: none;">
-                        <img src="img/sepatu.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <!-- karakter yang dapat di tampung card: 18 char -->
-                            <p class="card-text">Nama Produk bla bl</p>
-                            <p class="card-text price">Rp. 40X.XXX</p>
-                        </div>
-                    </a>
-                </div>
-
-            </div>
-
-            <div class="col">
-
-                <div class="card mx-auto mt-3" style="width: 12rem;">
-                    <a href="#" style="text-decoration: none;">
-                        <img src="img/sepatu.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <!-- karakter yang dapat di tampung card: 18 char -->
-                            <p class="card-text">Nama Produk bla bl</p>
-                            <p class="card-text price">Rp. 40X.XXX</p>
-                        </div>
-                    </a>
-                </div>
-
-            </div>
-
-            <!-- bagian 2 -->
-            <div class="col">
-
-                <div class="card mx-auto mt-3" style="width: 12rem;">
-                    <a href="#" style="text-decoration: none;">
-                        <img src="img/sepatu.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <!-- karakter yang dapat di tampung card: 18 char -->
-                            <p class="card-text">Nama Produk bla bl</p>
-                            <p class="card-text price">Rp. 40X.XXX</p>
-                        </div>
-                    </a>
-                </div>
-
-            </div>
-
-            <div class="col">
-
-                <div class="card mx-auto mt-3" style="width: 12rem;">
-                    <a href="#" style="text-decoration: none;">
-                        <img src="img/sepatu.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <!-- karakter yang dapat di tampung card: 18 char -->
-                            <p class="card-text">Nama Produk bla bl</p>
-                            <p class="card-text price">Rp. 40X.XXX</p>
-                        </div>
-                    </a>
-                </div>
-
-            </div>
-
-            <div class="col">
-
-                <div class="card mx-auto mt-3" style="width: 12rem;">
-                    <a href="#" style="text-decoration: none;">
-                        <img src="img/sepatu.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <!-- karakter yang dapat di tampung card: 18 char -->
-                            <p class="card-text">Nama Produk bla bl</p>
-                            <p class="card-text price">Rp. 40X.XXX</p>
-                        </div>
-                    </a>
-                </div>
-
-            </div>
-
-            <div class="col">
-
-                <div class="card mx-auto mt-3" style="width: 12rem;">
-                    <a href="#" style="text-decoration: none;">
-                        <img src="img/sepatu.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <!-- karakter yang dapat di tampung card: 18 char -->
-                            <p class="card-text">Nama Produk bla bl</p>
-                            <p class="card-text price">Rp. 40X.XXX</p>
-                        </div>
-                    </a>
-                </div>
-
-            </div>
-
-            <div class="col">
-
-                <div class="card mx-auto mt-3" style="width: 12rem;">
-                    <a href="#" style="text-decoration: none;">
-                        <img src="img/sepatu.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <!-- karakter yang dapat di tampung card: 18 char -->
-                            <p class="card-text">Nama Produk bla bl</p>
-                            <p class="card-text price">Rp. 40X.XXX</p>
-                        </div>
-                    </a>
-                </div>
-
-            </div>
-
-            <!-- bagian 3 -->
-            <div class="col">
-
-                <div class="card mx-auto mt-3" style="width: 12rem;">
-                    <a href="#" style="text-decoration: none;">
-                        <img src="img/sepatu.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <!-- karakter yang dapat di tampung card: 18 char -->
-                            <p class="card-text">Nama Produk bla bl</p>
-                            <p class="card-text price">Rp. 40X.XXX</p>
-                        </div>
-                    </a>
-                </div>
-
-            </div>
-
-            <div class="col">
-
-                <div class="card mx-auto mt-3" style="width: 12rem;">
-                    <a href="#" style="text-decoration: none;">
-                        <img src="img/sepatu.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <!-- karakter yang dapat di tampung card: 18 char -->
-                            <p class="card-text">Nama Produk bla bl</p>
-                            <p class="card-text price">Rp. 40X.XXX</p>
-                        </div>
-                    </a>
-                </div>
-
-            </div>
-
-            <div class="col">
-
-                <div class="card mx-auto mt-3" style="width: 12rem;">
-                    <a href="#" style="text-decoration: none;">
-                        <img src="img/sepatu.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <!-- karakter yang dapat di tampung card: 18 char -->
-                            <p class="card-text">Nama Produk bla bl</p>
-                            <p class="card-text price">Rp. 40X.XXX</p>
-                        </div>
-                    </a>
-                </div>
-
-            </div>
-
-            <div class="col">
-
-                <div class="card mx-auto mt-3" style="width: 12rem;">
-                    <a href="#" style="text-decoration: none;">
-                        <img src="img/sepatu.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <!-- karakter yang dapat di tampung card: 18 char -->
-                            <p class="card-text">Nama Produk bla bl</p>
-                            <p class="card-text price">Rp. 40X.XXX</p>
-                        </div>
-                    </a>
-                </div>
-
-            </div>
-
-            <div class="col">
-
-                <div class="card mx-auto mt-3" style="width: 12rem;">
-                    <a href="#" style="text-decoration: none;">
-                        <img src="img/sepatu.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <!-- karakter yang dapat di tampung card: 18 char -->
-                            <p class="card-text">Nama Produk bla bl</p>
-                            <p class="card-text price">Rp. 40X.XXX</p>
-                        </div>
-                    </a>
-                </div>
-
-            </div>
+        <?php }?>
 
         </div>
 
@@ -353,34 +107,24 @@
     </div>
 
 
-    <!-- footer -->
-    <div class="footer">   
-        <div class="container mt-2">
-            <div class="row">
-                <div class="col" style="text-align: center;">
-                    <h5>Ikuti kami</h5>
-                    <div class="medsos">
-                        <a href="https://www.facebook.com"><img src="img/fb.png" class="fa fa-shopping-cart fa-lg" aria-hidden="true"></img></a>
-                        <a href="https://www.instagram.com"><img src="img/ig.png" class="fa fa-shopping-cart fa-lg" aria-hidden="true"></img></a>
-                        <a href="https://www.youtube.com"><img src="img/yt.png" class="fa fa-shopping-cart fa-lg" aria-hidden="true"></img></a>
-                    </div>
-                </div>
-                <div class="col">
-                    <ul>
-                        <a href="#"><li class="mb-3 ml-5">bantuan dan panduan</li></a>
-                        <a href="#"><li class="mb-3 ml-5">syarat dan ketentuan</li></a>
-                        <a href="#"><li class="mb-3 ml-5">kebijakan privasi</li></a>
-                    </ul>
-                </div>
-                <div class="col" style="text-align: center;">
-                    <!-- <img src="" alt="Logo"> -->
-                    <h5 class="mx-auto">Puma store</h5>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <?php include "static/footer.php"; ?>
+
+    
+    <!-- CDN Online -->
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> -->
+
+    <!-- CDN Offline -->
+    <script src="bootstrap/js/jquery.min.js"></script>
+    <script src="bootstrap/js/popper.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+    <script>
+        $(window).on('load', function(){
+            $('.se-pre-con').fadeOut("slow");
+        });
+    </script>
 
 
 </body>

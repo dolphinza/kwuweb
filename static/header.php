@@ -1,24 +1,4 @@
-<!doctype html>
-<html>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-
-    <!-- CSS Online -->
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
-
-    <!-- CSS Offline -->
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="bootstrap/css/univstyle.css">
-    <link rel="stylesheet" href="bootstrap/css/allmobileview.css">
-    <link rel="stylesheet" href="bootstrap/css/loader.css">
-
-    <title>Puma Store</title>
-</head>
-
-<body>
     <div class="se-pre-con"></div>
     <!-- Bagian paling atas halaman website-->
     <topheader>
@@ -69,7 +49,6 @@
                     </li>
                 </ul>
             </div>
-            <button type="button" class="btn btn-outline-dark mr-2 btn-sm" onclick="window.location.href = 'login.php'">Sign in</button>
-            <button type="button" class="btn btn-dark btn-sm p1">Sign up</button>
+            <button type="button" class="btn btn-dark mr-2 btn-md" onclick="window.location.href = 'login.php'">Login</button>
         </div>
     </nav>

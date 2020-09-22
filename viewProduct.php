@@ -1,4 +1,26 @@
-<?php include "static/header.php" ?>
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    <!-- CSS Online -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+
+    <!-- CSS Offline -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap/css/univstyle.css">
+    <link rel="stylesheet" href="bootstrap/css/allmobileview.css">
+    <link rel="stylesheet" href="bootstrap/css/loader.css">
+
+    <title>viewProduct</title>
+</head>
+
+<body>
+
+    <?php include "static/header.php"; ?>
 
     <!-- main content viewProduct -->
     <div class="container">
@@ -217,7 +239,16 @@
         </div>
     </div>
 
-    <?php include "static/footer.php"; ?>
+    <!-- CDN Offline -->
+    <script src="bootstrap/js/jquery.min.js"></script>
+    <script src="bootstrap/js/popper.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+    <script>
+        $(window).on('load', function(){
+            $('.se-pre-con').fadeOut("slow");
+        });
+    </script>
 </body>
 
 </html>
