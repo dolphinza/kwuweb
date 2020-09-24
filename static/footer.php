@@ -19,7 +19,12 @@
                 </div>
                 <div class="col" style="text-align: center;">
                     <!-- <img src="" alt="Logo"> -->
-                    <h5 class="mx-auto">Puma store</h5>
+                    <div class="row">
+                        <h5 class="mx-auto">SoftFast</h5>
+                    </div>
+                    <div class="row">
+                        <img class="mx-auto" src="img/logo-light.png" alt="" width="60" height="40">
+                    </div>
                 </div>
             </div>
         </div>
