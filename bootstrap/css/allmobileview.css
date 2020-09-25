@@ -16,6 +16,12 @@
     }
 
     /* UI viewProduct for mobile */
+    
+    .main-image{
+        height: 200px;
+        width: 380px;
+    }
+
     .product-title{
         font-size: 1em;
     }
@@ -35,5 +41,14 @@
     .line-space-price{
         border: 0.1px black solid;
         margin: 8px 0px;
+    }
+}
+
+@media(max-width: 400px){
+     /* UI viewProduct for mobile */
+    
+     .main-image{
+        height: 100px;
+        width: 100%;
     }
 }

@@ -72,6 +72,12 @@ topheader .mobile {
 
 /* bagian style page viewProduct.html */
 
+/* image slide */
+.main-image{
+    height: 400px;
+    width: 500px;
+}
+
 /* discount */
 .discountbox{
     background-color: #ffcccc;

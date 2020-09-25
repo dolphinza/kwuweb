@@ -9,7 +9,7 @@
                 <li class="float-right pc"><a href="#">tentang puma store</a></li>
                 <!-- <li class="float-right mobile"><a href="#">signup</a></li>
                 <li class="float-right mobile"><a href="#">Login</a></li> -->
-                <li class="float-right mobile"><a href="#">Wishlist</a></li>
+                <li class="float-right mobile"><a href="wishlist.php">Wishlist</a></li>
             </ul>
         </div>
     </topheader>
@@ -35,10 +35,10 @@
                             <i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Wishlist 1</a>
-                            <a class="dropdown-item" href="#">Wishlist 2</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Kosongkan keranjang</a>
+                            <a class="dropdown-item" href="wishlist.php">Wishlist</a>
+                            <a class="dropdown-item" href="#">Trolly</a>
+                            <!-- <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Kosongkan keranjang</a> -->
                         </div>
                     </li>
                     <li class="nav-item">

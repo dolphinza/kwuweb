@@ -38,33 +38,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
 
     <!-- BOOTSTRAP CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="bootstrap/css/akun.css">
+    <link rel="stylesheet" href="bootstrap/css/index.css">
+    <link rel="stylesheet" href="bootstrap/css/allmobileview.css">
 
     <title>Account Page &mdash; namanya</title>
 </head>
 <body>
-    <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Puma Store</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="akun.php"><span class="sr-only">(current)</span>Account</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </div>
-    <form method="post">
+    <?php include "static/header.php"; ?>
+    <form class="mb-4" method="post">
         <div class="container mt-4">
             <input class="btn btn-success" type="submit" name="done-edit" value="DONE"></input>
         </div>
@@ -110,7 +97,7 @@
                             <div class="description pt-4">
                                 <label id="title-desc">Description</label>
                                 <div class="isi-description">
-                                    <textarea name="isi-desc" id="isDesc" cols="110" rows="10"><?php echo $desc; ?></textarea>
+                                    <textarea name="isi-desc" id="isDesc" cols="80" rows="10"><?php echo $desc; ?></textarea>
                                 </div>
                             </div>
                         </div>
@@ -119,6 +106,8 @@
             </div>
         </div>
     </form>
+
+    <?php include "static/footer.php"; ?>
 
     <!-- BOOTSTRAP JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

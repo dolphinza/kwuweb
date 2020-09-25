@@ -29,19 +29,25 @@
         <div class="row mt-4">
 
             <!-- (bagian kiri) bagian gambar produk dan 3 versi mini gambar produk -->
+            <?php
+                $img1 = "img/sepatu.jpg";
+                $img2 = "img/shoes.jpg";
+                $img3 = "img/shoes2.jpeg";
+            ?>
             <div class="col">
-                <img src="img/sepatu.jpg" class="img-thumbnail" alt="">
-
-                <div class="container mt-2 mb-2">
-                    <div class="row mr-2">
+                <div class="">
+                <img src="img/sepatu.jpg" class="border main-image" alt="" ><!-- width="360" -->
+                </div>
+                <div class="mt-3 mb-2">
+                    <div class="row mr-2 p-2 pl-0">
                         <div class="col">
-                            <img class="img-thumbnail" src="img/sepatu.jpg" alt="" style="width: 120px; height: 80px;">
+                            <img class="border border-dark item-img-1 img-thumbnail" src="<?php echo $img1; ?>" alt="" style="width: 100px; height: 80px;">
+                        </div>  
+                        <div class="col">
+                            <img class=" item-img-2 img-thumbnail" src="<?php echo $img2; ?>" alt="" style="width: 100px; height: 80px;">
                         </div>
                         <div class="col">
-                            <img class="img-thumbnail" src="img/sepatu.jpg" alt="" style="width: 120px; height: 80px;">
-                        </div>
-                        <div class="col">
-                            <img class="img-thumbnail" src="img/sepatu.jpg" alt="" style="width: 120px; height: 80px;">
+                            <img class=" item-img-3 img-thumbnail" src="<?php echo $img3; ?>" alt="" style="width: 100px; height: 80px;">
                         </div>
                     </div>
                 </div>
@@ -248,6 +254,44 @@
         $(window).on('load', function(){
             $('.se-pre-con').fadeOut("slow");
         });
+    </script>
+    <!-- JS untuk slide gambar produk -->
+    <script>
+        $(document).ready(function () {
+            
+            $('.item-img-1').click(function () {
+                $('.main-image').attr('src', '<?php echo $img1; ?>');
+                $('.item-img-1').addClass('border border-dark');
+
+                $('.item-img-2').removeClass('border border-dark');
+                $('.item-img-3').removeClass('border border-dark');
+                $('.item-img-4').removeClass('border border-dark');
+            });
+            $('.item-img-2').click(function () {
+                $('.main-image').attr('src', '<?php echo $img2; ?>');
+                $('.item-img-2').addClass('border border-dark');
+
+                $('.item-img-1').removeClass('border border-dark');
+                $('.item-img-3').removeClass('border border-dark');
+                $('.item-img-4').removeClass('border border-dark');
+            });
+            $('.item-img-3').click(function () {
+                $('.main-image').attr('src', '<?php echo $img3; ?>');
+                $('.item-img-3').addClass('border border-dark');
+
+                $('.item-img-1').removeClass('border border-dark');
+                $('.item-img-2').removeClass('border border-dark');
+                $('.item-img-4').removeClass('border border-dark');
+            });
+            $('.item-img-4').click(function () {
+                $('.main-image').attr('src', '<?php echo $img3; ?>');
+                $('.item-img-4').addClass('border border-dark');
+
+                $('.item-img-1').removeClass('border border-dark');
+                $('.item-img-2').removeClass('border border-dark');
+                $('.item-img-3').removeClass('border border-dark');
+            });
+        })
     </script>
 </body>
 
