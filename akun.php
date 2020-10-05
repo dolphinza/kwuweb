@@ -92,9 +92,9 @@
                             <div class="total-saldo">
                                 <?php
                                     if ($saldo <= 0) {
-                                        echo "Saldo kosong";
+                                        echo "Rp.0";
                                     } else {
-                                        echo $saldo;
+                                        echo 'Rp.'.$saldo;
                                     }
                                 ?>
                             </div>
