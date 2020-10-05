@@ -34,7 +34,7 @@
                         <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown">
                             <i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i>
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="wishlist.php">Wishlist</a>
                             <a class="dropdown-item" href="#">Trolly</a>
                             <!-- <div class="dropdown-divider"></div>
