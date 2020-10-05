@@ -227,7 +227,7 @@
         <div class="container">
             <ul>
                 <li class="ftright"><a class="btn btn-dark mr-1" href="#">Tambah Ke Trolly</a></li>
-                <li class="ftright"><a class="btn mr-1 btn-beli" href="#"> Beli </a></li>
+                <li class="ftright"><a class="btn mr-1 btn-beli" href="pembayaran.php"> Beli </a></li>
                 <li class="ftright"><a class="btn mr-1 w-love" href="#"><i class="fa fa-heart" style="color: red;"
                             aria-hidden="true"></i></a></li>
                 <!-- <li class="ftright"><a class="btn mr-2 w-love" href="#"><i class="fa fa-heart-o" style="color: red;" aria-hidden="true"></i></a></li> -->

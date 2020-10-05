@@ -67,9 +67,11 @@
             <nav class="search">
                 <input class="form-control mr-2 search-mobile-version" type="search" placeholder="Search" aria-label="Search">
             </nav>
+			
+			<?php for($i = 0; $i < 3; $i++){ ?>
             <div class="card mt-3">
                 <!-- href disesuaikan linknya dengan card -->
-                <a href="#" class="link" style="text-decoration: none;">
+                <a href="viewProduct.php" class="link" style="text-decoration: none;">
                     <div class="row">
                         <div class="card-header">
                             <img src="./img/sepatu.jpg" class="img img-fluid" alt="card">
@@ -92,56 +94,8 @@
                     </div>
                 </div>
             </div>
-            <div class="card mt-3">
-                <!-- href disesuaikan linknya dengan card -->
-                <a href="#" class="link" style="text-decoration: none;">
-                    <div class="row">
-                        <div class="card-header">
-                            <img src="./img/sepatu.jpg" class="img img-fluid" alt="card">
-                        </div>
-                        <div class="card-body">
-                            <h5>SHOES</h5>
-                            <p class="harga">Rp.500.000</p>
-                            <p class="bintang">✨✨✨✨✨ (10)</p>
-                        </div>
-                    </div>
-                </a>
-                <div class="card-footer">
-                    <div class="row">
-                        <div class="hapus pr-3">
-                            <button class="btn btn-outline-danger">Hapus</button>
-                        </div>
-                        <div class="keranjang">
-                            <button class="btn btn-outline-primary">Tambah Ke Keranjang</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card mt-3">
-                <!-- href disesuaikan linknya dengan card -->
-                <a href="#" class="link" style="text-decoration: none;">
-                    <div class="row">
-                        <div class="card-header">
-                            <img src="./img/sepatu.jpg" class="img img-fluid" alt="card">
-                        </div>
-                        <div class="card-body">
-                            <h5>SHOES</h5>
-                            <p class="harga">Rp.500.000</p>
-                            <p class="bintang">✨✨✨✨✨ (10)</p>
-                        </div>
-                    </div>
-                </a>
-                <div class="card-footer">
-                    <div class="row">
-                        <div class="hapus pr-3">
-                            <button class="btn btn-outline-danger">Hapus</button>
-                        </div>
-                        <div class="keranjang">
-                            <button class="btn btn-outline-primary">Tambah Ke Keranjang</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+			<?php } ?>
+			
         </div>
     </div>
 
