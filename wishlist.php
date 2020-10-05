@@ -10,19 +10,6 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script>
-        $(window).scroll(function() {
-            var scroll = $(window).scrollTop();
-            if (scroll > 60) {
-                // $(".searc").addClass("scrollIn")
-                $(".search").fadeOut(500);
-            }
-            if(scroll < 35){
-                // $(".search").removeClass("scrollIn")
-                $(".search").fadeIn(500);
-            }
-        });
-    </script>
     <title>Favorite List</title>
     <style>
         .card-header{
@@ -64,10 +51,6 @@
     <?php include "static/header.php"; ?> 
     <div class="container mt-3">
         <div class="jumbotron pt-3">
-            <nav class="search">
-                <input class="form-control mr-2 search-mobile-version" type="search" placeholder="Search" aria-label="Search">
-            </nav>
-			
 			<?php for($i = 0; $i < 3; $i++){ ?>
             <div class="card mt-3">
                 <!-- href disesuaikan linknya dengan card -->
