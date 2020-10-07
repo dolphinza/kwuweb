@@ -6,7 +6,7 @@
         $email = $_POST["user-email"];
         $notelp = $_POST["user-notelp"];
         $password = md5($_POST["user-password"]);
-        $q = $con->query("INSERT INTO akun VALUES ('$nama','','$email','$notelp','','$password','',0,'')");
+        $q = $con->query("INSERT INTO akun VALUES ('','$nama','','$email','$notelp','','$password','',0,'')");
         if($q) {
             echo "<script>alert('Success register');window.location.href='login.php';</script>";
         } else {
