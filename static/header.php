@@ -36,7 +36,7 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="wishlist.php">Wishlist</a>
-                            <a class="dropdown-item" href="#">Trolly</a>
+                            <a class="dropdown-item" href="bag.php">Trolly</a>
                             <!-- <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Kosongkan keranjang</a> -->
                         </div>

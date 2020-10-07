@@ -104,7 +104,7 @@
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <button class="btn btn-success" style="width: 100%;">Bayar Sekarang!</button>
+                        <a href="paymentSuccess.php" class="btn btn-success" style="width: 100%;">Bayar Sekarang!</a> 
                     </div>
                 </div>
             </div>
