@@ -75,9 +75,9 @@
         <div class="row">
 
             <!-- bagian List Produk more item -->
-            <?php for($i = 0; $i < 15; $i++){ ?>
+            <?php for($i = 0; $i < 20; $i++){ ?>
                 <div class="col">
-                    <div class="card mx-auto mt-3" style="width: 12rem;">
+                    <div class="ulas card mx-auto mt-3" style="width: 12rem;">
                         <a href="viewProduct.php" style="text-decoration: none;">
                             <?php include "produk.php"; ?>
                         </a>
@@ -93,7 +93,7 @@
     <div class="container mt-4 mb-4">
         <!-- style button pertama (pilih salah satu yang cocok-->
         <div class="mx-auto">
-            <a href="#" class="btn btn-outline-dark btn-lg btn-block pb-2 pt-2">Lihat lainnya</a>
+            <div class="show-more btn btn-outline-dark btn-lg btn-block pb-2 pt-2">Show more</div>
         </div>
 
         <!-- style button kedua (pilih salah satu yang cocok) -->
@@ -119,6 +119,20 @@
     <script src="bootstrap/js/jquery.min.js"></script>
     <script src="bootstrap/js/popper.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script>
+        //this will execute on page load(to be more specific when document ready event occurs)
+        if ($('.ulas').length > 15) {
+            $('.ulas:gt(14)').hide();
+            $('.show-more').show();
+        }
+
+        $('.show-more').on('click', function () {
+            //toggle elements with class .ty-compact-list that their index is bigger than 2
+            $('.ulas:gt(14)').toggle();
+            //change text of show more element just for demonstration purposes to this demo
+            $(this).text() === 'Show more' ? $(this).text('Show less') : $(this).text('Show more');
+        });
+    </script>
     <script>
         $(window).on('load', function(){
             $('.se-pre-con').fadeOut("slow");
