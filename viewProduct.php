@@ -184,7 +184,8 @@
                 <div class="bg-light tab-pane fade p-4" id="nav-review" role="tabpanel" aria-labelledby="nav-review-tab">
 
                     <!-- ulasan dari pengguna, terdapat nama, tanggal, isi ulasan -->
-                    <div class="mt-2 p-3 bg-white">
+                    <?php for($i = 0; $i < 4; $i++){ ?>
+                    <div class="ulas mt-2 p-3 bg-white">
                         <div class="container">
                             <div class="row">
                                 <h6>Nama pengguna</h6>   
@@ -201,9 +202,10 @@
                             </div>
                             </div>
                     </div>
+                    <?php } ?>
                     
-                    <div class="row container mt-2">
-                        <a href="#" class="btn" style="color: blue">Lihat lebih banyak ulasan</a>
+                    <div class=" row container mt-2">
+                        <div class="show-more btn text-info" style="display:none;cursor: pointer;">Show more</div>
                     </div>
 
                     <!-- Form membuat ulasan -->
@@ -244,6 +246,7 @@
 
         </div>
     </div>
+
 
     <!-- CDN Offline -->
     <script src="bootstrap/js/jquery.min.js"></script>
@@ -292,6 +295,21 @@
                 $('.item-img-3').removeClass('border border-dark');
             });
         })
+    </script>
+
+    <script>
+        //this will execute on page load(to be more specific when document ready event occurs)
+        if ($('.ulas').length > 3) {
+        $('.ulas:gt(2)').hide();
+        $('.show-more').show();
+        }
+
+        $('.show-more').on('click', function() {
+        //toggle elements with class .ty-compact-list that their index is bigger than 2
+        $('.ulas:gt(2)').toggle();
+        //change text of show more element just for demonstration purposes to this demo
+        $(this).text() === 'Show more' ? $(this).text('Show less') : $(this).text('Show more');
+        });
     </script>
 </body>
 
