@@ -184,7 +184,7 @@
                 <div class="bg-light tab-pane fade p-4" id="nav-review" role="tabpanel" aria-labelledby="nav-review-tab">
 
                     <!-- ulasan dari pengguna, terdapat nama, tanggal, isi ulasan -->
-                    <?php for($i = 0; $i < 4; $i++){ ?>
+                    <?php for($i = 0; $i < 7; $i++){ ?>
                     <div class="ulas mt-2 p-3 bg-white">
                         <div class="container">
                             <div class="row">
@@ -252,6 +252,7 @@
     <script src="bootstrap/js/jquery.min.js"></script>
     <script src="bootstrap/js/popper.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="bootstrap/js/showMore.js"></script>
     <!-- Gak guna, hanya nambah lama load halaman <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script> -->
     <script>
         $(window).on('load', function(){
@@ -297,20 +298,6 @@
         })
     </script>
 
-    <script>
-        //this will execute on page load(to be more specific when document ready event occurs)
-        if ($('.ulas').length > 3) {
-        $('.ulas:gt(2)').hide();
-        $('.show-more').show();
-        }
-
-        $('.show-more').on('click', function() {
-        //toggle elements with class .ty-compact-list that their index is bigger than 2
-        $('.ulas:gt(2)').toggle();
-        //change text of show more element just for demonstration purposes to this demo
-        $(this).text() === 'Show more' ? $(this).text('Show less') : $(this).text('Show more');
-        });
-    </script>
 </body>
 
 </html>
