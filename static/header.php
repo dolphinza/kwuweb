@@ -6,7 +6,7 @@
             <div></div> <!-- Jangan dihapus -->
             <ul>
                 <li class="float-right pc"><a href="#">customer care</a></li>
-                <li class="float-right pc"><a href="#">tentang puma store</a></li>
+                <li class="float-right pc"><a href="#">tentang soft fast</a></li>
                 <!-- <li class="float-right mobile"><a href="#">signup</a></li>
                 <li class="float-right mobile"><a href="#">Login</a></li> -->
                 <li class="float-right mobile"><a href="wishlist.php">Wishlist</a></li>
