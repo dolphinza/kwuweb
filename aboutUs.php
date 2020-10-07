@@ -18,6 +18,7 @@
             <div class="col">
                 <div>
                     <h1 class="text-center mt-5">About SoftFast</h1>
+                    <img src="img/logo.png" class="rounded mx-auto d-block">
                     <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
                         Assumenda, nisi nostrum consectetur minus aliquam sed impedit 
                         earum incidunt! Velit nulla ipsum repudiandae neque. 
