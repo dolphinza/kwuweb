@@ -18,7 +18,7 @@
 </head>
 
 <body>
-<?php include "static/header.php"; ?>
+<?php session_start(); include "static/header.php"; ?>
 
     <!-- Bagian slider -->
     <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
@@ -61,7 +61,7 @@
                 <!-- Card rekomendasi hanya ada 4 col -->
                 <div class="col">
                     <div class="card mx-auto mt-3" style="width: 12rem;">
-                        <a href="#" style="text-decoration: none;">
+                        <a href="<?php echo 'viewProduct.php?id=P'.strval($i+1); ?>" style="text-decoration: none;">
                             <?php include "produk.php"; ?>
                         </a>
                     </div>
@@ -77,7 +77,7 @@
             <?php for($i = 0; $i < 20; $i++){ ?>
                 <div class="col">
                     <div class="ulas card mx-auto mt-3" style="width: 12rem;">
-                        <a href="viewProduct.php" style="text-decoration: none;">
+                        <a href="<?php echo 'viewProduct.php?id=P'.strval($i+1); ?>" style="text-decoration: none;">
                             <?php include "produk.php"; ?>
                         </a>
                     </div>

@@ -7,7 +7,7 @@
     $q = $con->query("SELECT * FROM akun WHERE email='$email' AND password='$password'");
     if($q->num_rows > 0) {
       $data = $q->fetch_array();
-      $_SESSION["nama"] = $data["nama"];
+      $_SESSION["email"] = $data["email"];
       echo "<script>alert('Success login!');window.location.href='akun.php';</script>";
     } else {
       echo "<script>alert('Gagal login!');window.location.href='login.php';</script>";

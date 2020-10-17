@@ -1,4 +1,11 @@
-
+<?php
+    include "config.php";
+    session_start();
+    if(!isset($_SESSION['email'])) {
+        echo "<script>alert('Login terlebih dahulu !');window.location.href='index.php';</script>";
+    }
+    $email = $_SESSION['email'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,36 +68,46 @@
     <?php include "static/header.php"; ?>
     <div class="container mt-3">
         <div class="jumbotron pt-3">
-			<?php for($i = 0; $i < 3; $i++){ ?>
-            <div class="card mt-3">
-                <!-- href disesuaikan linknya dengan card -->
-                <a href="viewProduct.php" class="link" style="text-decoration: none;">
-                    <div class="row">
-                        <div class="card-header">
-                            <img src="./img/sepatu.jpg" class="img img-fluid" alt="card">
+			<?php
+                $q = $con->query("SELECT * FROM trolly WHERE email='$email'");
+                if($q->num_rows > 0) {
+                    while($data = $q->fetch_array()) {
+                        $id = strval($data['id_barang']);
+                        $q2 = $con->query("SELECT * FROM barang WHERE id_barang='$id'");
+                        $data2 = $q2->fetch_array();
+                        $img = "img/".$data2["path"];
+                        $nama_barang = $data2["nama_barang"];
+                        $harga = $data2["harga"];
+            ?>
+                <div class="card mt-3">
+                    <!-- href disesuaikan linknya dengan card -->
+                    <a href="<?php echo 'viewProduct.php?id='. strval($id)?>" class="link" style="text-decoration: none;">
+                        <div class="row">
+                            <div class="card-header">
+                                <img src="<?php echo $img; ?>" class="img img-fluid" alt="card">
+                            </div>
+                            <div class="card-body">
+                                <h5><?php echo $nama_barang; ?></h5>
+                                <p class="harga"><?php echo $harga; ?></p>
+                                <p class="bintang">✨✨✨✨✨ (10)</p>
+                            </div>
                         </div>
-                        <div class="card-body">
-                            <h5>SHOES</h5>
-                            <p class="harga">Rp.500.000</p>
-                            <p class="bintang">✨✨✨✨✨ (10)</p>
-                        </div>
-                    </div>
-                </a>
-                <div class="card-footer">
-                    <div class="row">
-                        <div class="minus">
-                        <img src="./img/minus.png" alt="kurang" class="kurang" style="width:30px;height:30px">
-                        </div>&nbsp;
-                        <div class="angkaBeli">
-                            0
-                        </div>&nbsp;
-                        <div class="plus">
-                            <img src="./img/plus.png" alt="tambah" class="tambah" style="width:30px;height:30px">
+                    </a>
+                    <div class="card-footer">
+                        <div class="row">
+                            <div class="minus">
+                            <img src="./img/minus.png" alt="kurang" class="kurang" style="width:30px;height:30px">
+                            </div>&nbsp;
+                            <div class="angkaBeli">
+                                0
+                            </div>&nbsp;
+                            <div class="plus">
+                                <img src="./img/plus.png" alt="tambah" class="tambah" style="width:30px;height:30px">
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-			<?php } ?>
+			<?php }} ?>
         </div>
     </div>
     <nav class="navbar navbar-expand-sm navbar-light text-white black">

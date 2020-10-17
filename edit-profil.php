@@ -1,13 +1,13 @@
 <?php
     session_start();
     include "config.php";
-    if (isset($_SESSION["nama"])) {
-        $nama = $_SESSION["nama"];
-        $q = $con->query("SELECT * FROM akun WHERE nama='$nama'");
+    if (isset($_SESSION["email"])) {
+        $email = $_SESSION["email"];
+        $q = $con->query("SELECT * FROM akun WHERE email='$email'");
         $data = $q->fetch_array();
         $jenis_kelamin = $data["jenis_kelamin"];
         $alamat = $data["alamat"];
-        $email = $data["email"];
+        $nama = $data["nama"];
         $notelp = $data["notelp"];
         $saldo = $data["saldo"];
         $desc = $data["description"];

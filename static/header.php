@@ -49,6 +49,10 @@
                     </li>
                 </ul>
             </div>
-            <button type="button" class="btn btn-dark mr-2 btn-md" onclick="window.location.href = 'login.php'">Login</button>
+            <?php if(!isset($_SESSION["email"])) { ?>
+                <button type="button" class="btn btn-dark mr-2 btn-md" onclick="window.location.href = 'login.php'">Login</button>
+            <?php } else { if ($_SERVER["REQUEST_URI"] != "/kwuweb/akun.php") { ?>
+                <button type="button" class="btn btn-dark mr-2 btn-md" onclick="window.location.href = 'akun.php'">Profile</button>
+            <?php }} ?>
         </div>
     </nav>

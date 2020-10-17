@@ -18,7 +18,7 @@
 		if ($q) {
 			$result["result"] = "Berhasil menambah ke trolly";
 		} else {
-			$result["result"] = "Gagal menambah ke trolly !";
+			$result["result"] = "Barang sudah ada di trolly !";
 		}
 	}
 

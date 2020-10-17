@@ -1,8 +1,11 @@
 <?php 
-$linkImg = "img/sepatu.jpg";
-$namaProduk = "Nama Produk bla ...";
-$txtPrice = "Rp. 40x.xxx";
-
+include "config.php";
+$id_barang = "P".strval($i+1);
+$q = $con->query("SELECT * FROM barang WHERE id_barang = '$id_barang'");
+$data = $q->fetch_array();
+$linkImg = "img/".$data["path"];
+$namaProduk = $data["nama_barang"];
+$txtPrice = $data["harga"];
 ?>
 
 <img src="<?php echo $linkImg; ?>" class="card-img-top" alt="...">
