@@ -1,4 +1,40 @@
-<!doctype html>
+<?php
+include "config.php";
+session_start();
+if(!isset($_GET["id"])) {
+    echo "<script>alert('Invalid parameter');window.location.href='index.php';</script>";
+}
+$id = "".strval($_GET["id"]);
+$q = $con->query("SELECT * FROM barang WHERE id_barang = '$id'");
+if ($q->num_rows > 0) {
+    $data = $q->fetch_array();
+    $img = "img/".$data["path"];
+    $nama_barang = $data["nama_barang"];
+    $jumlah = $data["jumlah"];
+    $harga = $data["harga"];
+    $deskripsi = $data["keterangan"];
+} else {
+    $msg = "Barang dengan id " . strval($_GET["id"]) . " tidak ada";
+    echo "<script>alert('$msg');window.location.href='index.php';</script>";
+}
+
+if (isset($_POST["submitUlasan"])) {
+    if (isset($_SESSION['email'])) {
+        $ulasan = $_POST['ulasanInput'];
+        $email = $_SESSION['email'];
+        $q = $con->query("INSERT INTO ulasan(id_barang,email,ulasan,tanggal) VALUES ('$id','$email','$ulasan',now())");
+        if($q) {
+            echo "<script>alert('Berhasil menambah ulasan');window.location.href='viewProduct.php?id='+$id;</script>";
+        } else {
+            echo "<script>alert('Gagal menambah ulasan');window.location.href='viewProduct.php?id='+$id;</script>";
+        }
+    } else {
+        unset($_POST['submitUlasan']);
+        echo "<script>alert('Login terlebih dahulu');location.reload();</script>";
+    }
+    unset($_POST['submitUlasan']);
+}
+?>
 <html>
 
 <head>
@@ -41,13 +77,13 @@
                 <div class="mt-3 mb-2">
                     <div class="row mr-2 p-2 pl-0">
                         <div class="col">
-                            <img class="border border-dark item-img-1 img-thumbnail" src="<?php echo $img1; ?>" alt="" style="width: 100px; height: 80px;">
+                            <img class="border border-dark item-img-1 img-thumbnail" src="<?php echo $img; ?>" alt="" style="width: 100px; height: 80px;">
                         </div>  
                         <div class="col">
-                            <img class=" item-img-2 img-thumbnail" src="<?php echo $img2; ?>" alt="" style="width: 100px; height: 80px;">
+                            <img class=" item-img-2 img-thumbnail" src="<?php echo $img; ?>" alt="" style="width: 100px; height: 80px;">
                         </div>
                         <div class="col">
-                            <img class=" item-img-3 img-thumbnail" src="<?php echo $img3; ?>" alt="" style="width: 100px; height: 80px;">
+                            <img class=" item-img-3 img-thumbnail" src="<?php echo $img; ?>" alt="" style="width: 100px; height: 80px;">
                         </div>
                     </div>
                 </div>
@@ -63,7 +99,7 @@
             <div class="col mt-5">
 
                 <!-- bagian judul produk -->
-                <h3 class="mt-4 product-title">Lorem Ipsum judul produk akan ditaruh disini</h3>
+                <h3 class="mt-4 product-title"><?php echo $nama_barang; ?></h3>
                 <div class="line-space-price"></div>
 
                 <!-- bagian Harga dan discount -->
@@ -85,7 +121,7 @@
 
                         <!-- bagian harga barang -->
                         <div class="row">
-                            <h3 class="text-success price">Rp. 400.xxx</h3>
+                            <h3 class="text-success price"><?php echo $harga; ?></h3>
                         </div>
 
                     </div>
@@ -101,8 +137,11 @@
                     </div>
 
                     <div class="col">
-                        <p class="stok-null">stok habis</p>
-                        <input type="number" name="" id="" placeholder="1" min="1" value="1">
+                        <?php if($jumlah == 0) { ?>
+                            <p class="stok-null">stok habis</p>
+                        <?php } else { ?>
+                            <input type="number" name="jumlahBarang" id="" placeholder="1" min="1" max="<?php echo $jumlah; ?>" value="1">
+                        <?php } ?>
                     </div>
 
                     <div class="col"></div> <!-- pemberi space di sisi kanan bagian harga -->
@@ -174,46 +213,49 @@
                 
                 <!-- Isi deskripsi -->
                 <div class="bg-light tab-pane fade show active p-4" id="nav-desc" role="tabpanel" aria-labelledby="nav-desc-tab">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores, illum adipisci sunt facere quibusdam corrupti, beatae reprehenderit sapiente nobis non, 
-                    perferendis laboriosam consequuntur quaerat explicabo? Obcaecati voluptas nam ex necessitatibus!
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolores, illum adipisci sunt facere quibusdam corrupti, beatae reprehenderit sapiente nobis non, 
-                    perferendis laboriosam consequuntur quaerat explicabo? Obcaecati voluptas nam ex necessitatibus!
+                <?php echo $deskripsi; ?>
                 </div>
                 
                 <!-- isi ulasan (max 150 karakter untuk isi ulasan dan max ulasan yang ditampilkan 3 kolom) -->
                 <div class="bg-light tab-pane fade p-4" id="nav-review" role="tabpanel" aria-labelledby="nav-review-tab">
 
                     <!-- ulasan dari pengguna, terdapat nama, tanggal, isi ulasan -->
-                    <?php for($i = 0; $i < 7; $i++){ ?>
+                    <?php
+                        include "config.php";
+                        $q = $con->query("SELECT * FROM ulasan");
+                        if ($q->num_rows > 0 ) {
+                            while($data = $q->fetch_array()) {
+                                $email = $data['email'];
+                                $q2 = $con->query("SELECT * FROM akun WHERE email= '$email'");
+                                $data2 = $q2->fetch_array();
+                    ?>
                     <div class="ulas mt-2 p-3 bg-white">
                         <div class="container">
                             <div class="row">
-                                <h6>Nama pengguna</h6>   
+                                <h6><?php echo $data2["nama"];?></h6>   
                             </div>
                             <div class="row"> 
-                                <p>19/september/2020</p>
+                                <p><?php echo date( 'd F Y ', strtotime($data['tanggal']) );?></p>
                             </div>
                             <div class="row">
-                                <i>
-                                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
-                                    Praesentium unde cum eligendi quam nobis illum saepe. 
-                                    Suscipit libero ab quaerat veniam ut nobis nostrum sapiente velit totam hic? Odit, culpa?
-                                </i>
+                                <i><?php echo $data["ulasan"];?></i>
                             </div>
                             </div>
                     </div>
-                    <?php } ?>
+                   <?php } ?>
                     
                     <div class=" row container mt-2">
                         <div class="show-more btn text-info" style="display:none;cursor: pointer;">Show more</div>
                     </div>
 
+                    <?php } ?>
+
                     <!-- Form membuat ulasan -->
-                    <form action="">
+                    <form method="POST">
                         <div class="row container">
                             <h6 class="ml-2 mt-5"><label for="exampleFormControlTextarea1">Masukan ulasan</label></h6>
-                            <textarea class="form-control" id="ulasanInput" rows="3"></textarea>
-                            <a href="#" class="btn btn-dark mt-3 ml-2">Kirim ulasan</a>
+                            <textarea class="form-control" name="ulasanInput" rows="3"></textarea>
+                            <input type="submit" name="submitUlasan" class="btn btn-dark mt-3 ml-2" value="Kirim ulasan"></input>
                         </div>
                     </form>
 
@@ -228,9 +270,9 @@
     <div class="sub-foot pt-1 pb-2">
         <div class="container">
             <ul>
-                <li class="ftright"><a class="btn btn-dark mr-1" href="#">Tambah Ke Trolly</a></li>
+                <li class="ftright"><a class="btn btn-dark mr-1" href="<?php echo 'trolly.php?id='.$id ?>">Tambah Ke Trolly</a></li>
                 <li class="ftright"><a class="btn mr-1 btn-beli" href="pembayaran.php"> Beli </a></li>
-                <li class="ftright"><a class="btn mr-1 w-love" href="#"><i class="fa fa-heart" style="color: red;"
+                <li class="ftright"><a class="btn mr-1 w-love" href="<?php echo 'wishlist.php?id='.$id ?>"><i class="fa fa-heart" style="color: red;"
                             aria-hidden="true"></i></a></li>
                 <!-- <li class="ftright"><a class="btn mr-2 w-love" href="#"><i class="fa fa-heart-o" style="color: red;" aria-hidden="true"></i></a></li> -->
                 <li class="ftright mr-4">
@@ -238,7 +280,7 @@
                         <div style="font-size: 12px">Harga</div>
                     </div>
                     <div class="row">
-                        <h6 class="text-success" style="font-weight:bold;">Rp. 400.xxx</h6>
+                        <h6 class="text-success" style="font-weight:bold;"><?php echo $harga ?></h6>
                     </div>
                 </li>
 
