@@ -1,6 +1,6 @@
 # kwuweb
 ## welcome 😊
 ## Build with
-### PHP Native
-### HTML & CSS
-### JS
+1. PHP Native
+2. HTML & CSS
+3. JS
