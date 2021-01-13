@@ -369,7 +369,7 @@ function toRupiah($angka){
             let ukuranSepatu = "";
             let qty = "";
             $("#ukuran").on("change",function(){
-                qty = document.getElementById("jumlahBeli").value;
+                qty = $("input#jumlahBeli").val();
                 ukuranSepatu = $("#ukuran option:selected").attr("value");
             })
             $("#btn-beli").click(function(){
