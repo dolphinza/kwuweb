@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <?php include "static/header.php"; ?>
+    <?php session_start(); include "static/header.php"; ?>
 
     <div class="container">
         <div class="row">

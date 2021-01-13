@@ -81,7 +81,7 @@ function toRupiah($angka){
             ?>
             <div class="col">
                 <div class="">
-                <img src="img/sepatu.jpg" class="border main-image" alt="" ><!-- width="360" -->
+                <img src="<?= $img?>" class="border main-image" alt="" ><!-- width="360" -->
                 </div>
                 <div class="mt-3 mb-2">
                     <div class="row mr-2 p-2 pl-0">
@@ -293,7 +293,7 @@ function toRupiah($angka){
         <div class="container">
             <ul>
                 <li class="ftright"><a class="btn btn-dark mr-1" id="btn-trolly" style="color:white">Tambah Ke Trolly</a></li>
-                <li class="ftright"><a class="btn mr-1 btn-beli" href="pembayaran.php"> Beli </a></li>
+                <li class="ftright"><a class="btn mr-1 btn-beli" id="btn-beli"> Beli </a></li>
                 <li class="ftright"><a class="btn mr-1 w-love" href="<?php echo 'wishlist.php?id='.$id ?>"><i class="fa fa-heart" style="color: red;"
                             aria-hidden="true"></i></a></li>
                 <!-- <li class="ftright"><a class="btn mr-2 w-love" href="#"><i class="fa fa-heart-o" style="color: red;" aria-hidden="true"></i></a></li> -->
@@ -371,6 +371,17 @@ function toRupiah($angka){
             $("#ukuran").on("change",function(){
                 qty = document.getElementById("jumlahBeli").value;
                 ukuranSepatu = $("#ukuran option:selected").attr("value");
+            })
+            $("#btn-beli").click(function(){
+                var jumlah = $("input#jumlahBeli").val();
+                var ukuran = $("select#ukuran").val();
+                if (jumlah == "") {
+                    alert("Masukkan jumlah barang");
+                } else if (ukuran == "Pilih ukuran") {
+                    alert("Masukkan ukuran barang")
+                } else {
+                    window.location.href = `pembayaran.php?id=<?= $id?>&jumlah=${jumlah}&ukuran=${ukuran}`;
+                }
             })
             btnTrolly.click(function(){
                 window.location.href = `trolly.php?id=<?= $id?>&ukuranSepatu=${ukuranSepatu}&qty=${qty}`;
