@@ -22,6 +22,12 @@
         }
     </style>
 </head>
+<?php
+function toRupiah($angka){
+    $hasilRupiah = "Rp. ".number_format($angka,0,',','.');
+    return $hasilRupiah;
+}
+?>
 <body>
     <div class="container mt-3">
         <div class="jumbotron">
@@ -98,7 +104,7 @@
                     <div class="col-9">
                         <h5>Total Tagihan</h5>
                         <div class="harga">
-                            <h5>Rp.500.00</h5>
+                            <h5><?= toRupiah(500000);?></h5>
                         </div>
                     </div>
                 </div>

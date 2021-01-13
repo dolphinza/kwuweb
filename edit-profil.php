@@ -32,6 +32,10 @@
             echo "<script>alert('Gagal edit profile !');window.location.href='edit-profil.php';</script>";
         }
     }
+    function toRupiah($angka){
+        $hasilRupiah = "Rp. ".number_format($angka,0,',','.');
+        return $hasilRupiah;
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,6 +58,7 @@
     <form class="mb-4" method="post">
         <div class="container mt-4">
             <input class="btn btn-success" type="submit" name="done-edit" value="DONE"></input>
+            <button class="btn btn-danger" type="button" name="cancel-edit" onclick="window.location.href = 'akun.php'">CANCEL</button>
         </div>
         <div class="container mt-4">
             <div class="row">
@@ -89,7 +94,7 @@
                                         if ($saldo <= 0) {
                                             echo "Saldo kosong";
                                         } else {
-                                            echo $saldo;
+                                            echo toRupiah($saldo);
                                         }
                                     ?>
                                 </div>

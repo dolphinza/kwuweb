@@ -12,6 +12,9 @@ if ($q->num_rows > 0) {
     $nama_barang = $data["nama_barang"];
     $jumlah = $data["jumlah"];
     $harga = $data["harga"];
+    $diskon = $data["diskon"];
+    $hitungDiskon = ($harga*($diskon/100));
+    $hasilDiskon = $harga - $hitungDiskon;
     $deskripsi = $data["keterangan"];
 } else {
     $msg = "Barang dengan id " . strval($_GET["id"]) . " tidak ada";
@@ -33,6 +36,12 @@ if (isset($_POST["submitUlasan"])) {
         echo "<script>alert('Login terlebih dahulu');location.reload();</script>";
     }
     unset($_POST['submitUlasan']);
+}
+?>
+<?php
+function toRupiah($angka){
+    $hasilRupiah = "Rp. ".number_format($angka,0,',','.');
+    return $hasilRupiah;
 }
 ?>
 <html>
@@ -103,6 +112,8 @@ if (isset($_POST["submitUlasan"])) {
                 <div class="line-space-price"></div>
 
                 <!-- bagian Harga dan discount -->
+                <!-- rumus diskon harga x diskon/100 -->
+                <!-- jika diskon 0 maka tidak masuk kondisi -->
                 <div class="row mt-2">
                     <div class="col">
                         <h6 class="title-mini-product">Harga</h6>
@@ -112,16 +123,27 @@ if (isset($_POST["submitUlasan"])) {
 
                         <!-- bagian yang menampilkan discount dan potongan harganya -->
                         <!-- bisa disembunyikan menggunakan style -->
-                        <div class="row hidden title-discount">
-                            <div class="discountbox">20%</div>
-                            <del>100.xxx</del>
-                            <div class="col"></div>
-                            <div class="col"></div>
-                        </div>
+                        <?php
+                            if($diskon > 0){
+                                echo '<div class="row hidden title-discount">'.
+                                '<div class="discountbox">'.$diskon.'%</div>'.
+                                '<del>'.toRupiah($harga).'</del>'.
+                                '<div class="col"></div>'.
+                                '<div class="col"></div>'.
+                                '</div>';
+                            }
+                        ?>
 
                         <!-- bagian harga barang -->
                         <div class="row">
-                            <h3 class="text-success price"><?php echo $harga; ?></h3>
+                            <?php
+                                if($diskon > 0){
+                                    echo '<h3 class="text-success price">'.toRupiah($hasilDiskon).'</h3>';
+                                }
+                                else{
+                                    echo '<h3 class="text-success price">'.toRupiah($hasilDiskon).'</h3>';
+                                }
+                            ?>
                         </div>
 
                     </div>
@@ -140,7 +162,7 @@ if (isset($_POST["submitUlasan"])) {
                         <?php if($jumlah == 0) { ?>
                             <p class="stok-null">stok habis</p>
                         <?php } else { ?>
-                            <input type="number" name="jumlahBarang" id="" placeholder="1" min="1" max="<?php echo $jumlah; ?>" value="1">
+                            <input type="number" name="jumlahBarang" id="jumlahBeli" min="1" max="<?php echo $jumlah; ?>" >
                         <?php } ?>
                     </div>
 
@@ -270,7 +292,7 @@ if (isset($_POST["submitUlasan"])) {
     <div class="sub-foot pt-1 pb-2">
         <div class="container">
             <ul>
-                <li class="ftright"><a class="btn btn-dark mr-1" href="<?php echo 'trolly.php?id='.$id ?>">Tambah Ke Trolly</a></li>
+                <li class="ftright"><a class="btn btn-dark mr-1" id="btn-trolly" style="color:white">Tambah Ke Trolly</a></li>
                 <li class="ftright"><a class="btn mr-1 btn-beli" href="pembayaran.php"> Beli </a></li>
                 <li class="ftright"><a class="btn mr-1 w-love" href="<?php echo 'wishlist.php?id='.$id ?>"><i class="fa fa-heart" style="color: red;"
                             aria-hidden="true"></i></a></li>
@@ -280,7 +302,13 @@ if (isset($_POST["submitUlasan"])) {
                         <div style="font-size: 12px">Harga</div>
                     </div>
                     <div class="row">
-                        <h6 class="text-success" style="font-weight:bold;"><?php echo $harga ?></h6>
+                        <?php
+                            if($diskon > 0){
+                                echo '<h6 class="text-success">'.toRupiah($hasilDiskon).'</h6>';
+                            }else{
+                                echo '<h6 class="text-success" style="font-weight:bold;">'.$harga.'</h6>';
+                            }
+                        ?>
                     </div>
                 </li>
 
@@ -337,6 +365,16 @@ if (isset($_POST["submitUlasan"])) {
                 $('.item-img-2').removeClass('border border-dark');
                 $('.item-img-3').removeClass('border border-dark');
             });
+            const btnTrolly = $("a#btn-trolly");
+            let ukuranSepatu = "";
+            let qty = "";
+            $("#ukuran").on("change",function(){
+                qty = document.getElementById("jumlahBeli").value;
+                ukuranSepatu = $("#ukuran option:selected").attr("value");
+            })
+            btnTrolly.click(function(){
+                window.location.href = `trolly.php?id=<?= $id?>&ukuranSepatu=${ukuranSepatu}&qty=${qty}`;
+            })
         })
     </script>
 

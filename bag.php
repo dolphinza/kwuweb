@@ -1,10 +1,14 @@
-<?php
+<?php 
     include "config.php";
     session_start();
     if(!isset($_SESSION['email'])) {
         echo "<script>alert('Login terlebih dahulu !');window.location.href='index.php';</script>";
     }
     $email = $_SESSION['email'];
+    function toRupiah($angka){
+        $hasilRupiah = "Rp. ".number_format($angka,0,',','.');
+        return $hasilRupiah;
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,6 +20,7 @@
     <link rel="stylesheet" href="bootstrap/css/allmobileview.css">
     <link rel="stylesheet" href="bootstrap/css/index.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="bootstrap/css/univstyle.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <title>BAG</title>
@@ -69,15 +74,22 @@
     <div class="container mt-3">
         <div class="jumbotron pt-3">
 			<?php
-                $q = $con->query("SELECT * FROM trolly WHERE email='$email'");
+            $total_bayar = 0;
+                $q = $con->query("SELECT a.id_barang,a.email,a.qty,b.nama_barang,b.keterangan,b.harga,b.path,b.diskon from trolly a,barang b where a.id_barang = b.id_barang and a.email = '$email'");
                 if($q->num_rows > 0) {
                     while($data = $q->fetch_array()) {
-                        $id = strval($data['id_barang']);
-                        $q2 = $con->query("SELECT * FROM barang WHERE id_barang='$id'");
-                        $data2 = $q2->fetch_array();
-                        $img = "img/".$data2["path"];
-                        $nama_barang = $data2["nama_barang"];
-                        $harga = $data2["harga"];
+                        $id = $data["id_barang"];
+                        $img = "img/".$data["path"];
+                        $nama_barang = $data["nama_barang"];
+                        $harga = $data["harga"];
+                        $diskon = $data["diskon"];
+                        $hitungDiskon = ($harga*($diskon/100));
+                        $hasilDiskon = $harga - $hitungDiskon;
+                        $ket = $data["keterangan"];
+                        $qty = $data["qty"];
+                        $_SESSION['qtys'] = $qty;
+                        $total = $diskon ? $hasilDiskon*$qty : $harga*$qty;
+                        $total_bayar += $total;
             ?>
                 <div class="card mt-3">
                     <!-- href disesuaikan linknya dengan card -->
@@ -88,21 +100,37 @@
                             </div>
                             <div class="card-body">
                                 <h5><?php echo $nama_barang; ?></h5>
-                                <p class="harga"><?php echo $harga; ?></p>
+                                <?php
+                                    if($diskon > 0){
+                                        echo '<div class="row hidden title-discount" style="padding-left:15px">'.
+                                        '<div class="discountbox">'.$diskon.'%</div>'.
+                                        '<del>'.toRupiah($harga).'</del>'.
+                                        '<div class="col"></div>'.
+                                        '<div class="col"></div>'.
+                                        '</div>';
+                                        echo '<p class="harga">'.toRupiah($hasilDiskon).'</p>';
+                                    }
+                                    else{
+                                        echo '<p class="harga">'.toRupiah($harga).'</p>';
+                                    }
+                                ?>
                                 <p class="bintang">✨✨✨✨✨ (10)</p>
                             </div>
                         </div>
                     </a>
                     <div class="card-footer">
                         <div class="row">
+                            <div class="buang">
+                                <img src="./img/trash.png" alt="buang" class="buang" style="width:30px;height:30px" onclick="deleteTrolly('<?=$id?>')">
+                            </div>&nbsp;
                             <div class="minus">
-                            <img src="./img/minus.png" alt="kurang" class="kurang" style="width:30px;height:30px">
+                                <img src="./img/minus.png" alt="kurang" class="kurang" style="width:30px;height:30px" onclick="kurang(<?=$qty?>,'<?=$id?>')">
                             </div>&nbsp;
                             <div class="angkaBeli">
-                                0
+                                <input type="text" class="form-control" id="value-<?= $id?>" min="1" value="<?= $qty?>" style="width:80px;text-align:center;">
                             </div>&nbsp;
                             <div class="plus">
-                                <img src="./img/plus.png" alt="tambah" class="tambah" style="width:30px;height:30px">
+                                <img src="./img/plus.png" alt="tambah" class="tambah" style="width:30px;height:30px" onclick="tambah(<?=$qty?>,'<?=$id?>')">
                             </div>
                         </div>
                     </div>
@@ -114,7 +142,7 @@
             <div class="row">
                 Total Belanja : &nbsp;
                 <div class="harga">
-                    Rp.1.000.000
+                    <?= toRupiah($total_bayar)?>
                 </div>
             </div>
             <div class="row ml-auto">
@@ -124,20 +152,33 @@
 
     <?php include "static/footer.php"; ?>
     <script>
-        let i=0
-        $(".kurang").on('click',function(){
-            i--;
-            if(i<=0){
-                i=0
-            }
-            $(".angkaBeli").text(" "+i+" ")
-        })
-        $(".tambah").on('click',function(){
-            i++;
-            $(".angkaBeli").text(" "+i+" ")
-        })
+    function deleteTrolly(id){
+        
+        // $.ajax({
+        //     method:"POST",
+        //     url:"deleteTrolly.php",
+        //     data:{
+        //         id:id,
+        //         email:email
+        //     }
+        // })
+
+    }
+
+    function tambah(qty,id){
+        qty = qty += 1;
+        document.getElementById(`value-${id}`).value = qty;
+    }
+
+    function kurang(qty,id){
+        qty--;
+        if(qty<=0){
+            qty=0
+        }
+        $(".angkaBeli").text(" "+qty+" ")
+    }
     </script>
-    <script src="bootstrap/js/jquery.min.js"></script>
+    <script src="/bootstrap/js/jquery.min.js"></script> <!-- Menambahkan tanda /  -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" ></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
 </body>

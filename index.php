@@ -16,7 +16,6 @@
 
     <title>Puma Store</title>
 </head>
-
 <body>
 <?php session_start(); include "static/header.php"; ?>
 

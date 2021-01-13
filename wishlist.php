@@ -14,14 +14,14 @@
             $q2 = $con->query("INSERT INTO wishlist VALUES ('$email','$id')");
             if ($q2) {
                 $msg .= "Berhasil menambah barang ke wishlist";
-                echo "<script>alert('$msg');window.location.href='index.php';</script>";
+                echo "<script>alert('$msg');window.history.back();</script>";
             } else {
                 $msg .= "Barang sudah ada di trolly";
-                echo "<script>alert('$msg');window.location.href='index.php';</script>";
+                echo "<script>alert('$msg');window.history.back();</script>";
             }
         } else {
             $msg .= "Barang dengan id " . strval($_GET["id"]) . " tidak ada";
-            echo "<script>alert('$msg');window.location.href='index.php';</script>";
+            echo "<script>alert('$msg');window.history.back();</script>";
         }
     }
 ?>
@@ -135,8 +135,8 @@
                     id: id
                 },
                 success: function(e) {
-                    alert(e.result);
-                    window.location.href='index.php';
+                    alert(e.resp);
+                    window.location.href='wishlist.php';
                 },
                 error: function(e) {
                     console.log(e);

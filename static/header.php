@@ -46,11 +46,15 @@
                             aria-haspopup="true" aria-expanded="false">
                             <i class=" fa fa-ellipsis-v fa-lg mr-2" aria-hidden="true"></i>
                         </a>
+                        <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="logout.php">Logout</a>
+                        </div>
                     </li>
                 </ul>
             </div>
             <?php if(!isset($_SESSION["email"])) { ?>
                 <button type="button" class="btn btn-dark mr-2 btn-md" onclick="window.location.href = 'login.php'">Login</button>
+                <button type="button" class="btn btn-dark mr-2 btn-md" onclick="window.location.href = 'signup.php'">Daftar</button>
             <?php } else { if ($_SERVER["REQUEST_URI"] != "/kwuweb/akun.php") { ?>
                 <button type="button" class="btn btn-dark mr-2 btn-md" onclick="window.location.href = 'akun.php'">Profile</button>
             <?php }} ?>

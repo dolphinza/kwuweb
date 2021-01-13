@@ -7,22 +7,24 @@
 	$msg = "";
 	if(isset($_GET["id"])) {
 		$id = $_GET["id"];
-		$q = $con->query("SELECT * FROM barang WHERE id_barang = '$id'");
-		if ($q->num_rows > 0) {
+		$ukuranSepatu = $_GET["ukuranSepatu"];
+		$qty = $_GET["qty"];
+		// $q = $con->query("SELECT * FROM barang WHERE id_barang = '$id'");
+		// if ($q->num_rows > 0) {
 			$email = $_SESSION['email'];
-    		$q2 = $con->query("INSERT INTO trolly VALUES ('$email','$id')");
+    		$q2 = $con->query("INSERT INTO trolly VALUES ('$email','$id',$qty,$ukuranSepatu)");
     		if ($q2) {
 	    		$msg .= "Berhasil menambah barang ke trolly";
-    			echo "<script>alert('$msg');window.location.href='index.php';</script>";
+    			echo "<script>alert('$msg');window.history.back();</script>";
     		} else {
     			$msg .= "Barang sudah ada di trolly";
-    			echo "<script>alert('$msg');window.location.href='index.php';</script>";
+    			echo "<script>alert('$msg');window.history.back();</script>";
     		}
-		} else {
-    		$msg .= "Barang dengan id " . strval($_GET["id"]) . " tidak ada";
-    		echo "<script>alert('$msg');window.location.href='index.php';</script>";
-		}
 	} else {
-		echo "<script>alert('Invalid parameter');window.location.href='index.php';</script>";
+    	$msg .= "Barang dengan id " . strval($_GET["id"]) . " tidak ada";
+    	echo "<script>alert('$msg');window.location.href='index.php';</script>";
 	}
+	// } else {
+		// echo "<script>alert('Invalid parameter');window.location.href='index.php';</script>";
+	// }
 ?>

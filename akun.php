@@ -35,7 +35,12 @@
     <title>Account Page &mdash; namanya</title>
 </head>
 <body>
-    <?php include "static/header.php" ?>
+    <?php include "static/header.php";
+        function toRupiah($angka){
+            $hasilRupiah = "Rp. ".number_format($angka,0,',','.');
+            return $hasilRupiah;
+        }
+    ?>
 
 
     <!-- 
@@ -95,7 +100,7 @@
                                     if ($saldo <= 0) {
                                         echo "Rp.0";
                                     } else {
-                                        echo 'Rp.'.$saldo;
+                                        echo toRupiah($saldo);
                                     }
                                 ?>
                             </div>
